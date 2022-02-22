@@ -7,6 +7,7 @@ void mov_x();
 void mov_y();
 void mov_diagonal();
 void outputmotor(int input[3]);
+void pointer(int *input1[3]);
 int motor[4]={0,0,0,0};
 
 
@@ -36,7 +37,7 @@ int speed(int speedx,int speedy){
 }
 
 void menampilkan(int input1,int input2){
-    printf("nilai speedx = %d\n",input1);
+    printf("\nnilai speedx = %d\n",input1);
     printf("nilai speedy = %d\n",input2);
 }
 
@@ -58,7 +59,9 @@ void mov_x(){
     } else {
         printf("error");
     }
+    printf("\n");
     outputmotor(motor);
+    pointer(motor);
 }   
 
 void mov_y(){
@@ -81,7 +84,9 @@ void mov_y(){
     } else {
         printf("error");
     }
+    printf("\n");
     outputmotor(motor);
+    pointer(motor);
 }
 
 void mov_diagonal(){
@@ -123,12 +128,21 @@ void mov_diagonal(){
         }
         
     } 
+    printf("\n");
     outputmotor(motor);
+    pointer(motor);
 }
 
 void outputmotor(int input[4]) {
     int i;
     for( i=0;i<=3;i++){
         printf("motor %d = %d\n",i,input[i]);
+    }
+}
+
+void pointer(int *input1[3]){
+    int x;
+    for( x=0;x<=3;x++){
+        printf("\nValue motor %d = %d  | Address motor %d = %x ",x,(input1[x]),x,&input1[x]);
     }
 }
